@@ -2,9 +2,7 @@ package com.codingbydivyanshu.yt.HospitalManagement.entity;
 
 import com.codingbydivyanshu.yt.HospitalManagement.type.Bloodgrouptype;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -13,7 +11,9 @@ import java.util.List;
 @ToString
 @Getter
 @Setter
-
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 
 
 public class patient {
@@ -25,6 +25,9 @@ public class patient {
     private String name;
     @ToString.Exclude
     private LocalDate DOB;
+    @OneToOne
+    @MapsId
+    private User user;
     private String email;
     @Enumerated(EnumType.STRING)
     private Bloodgrouptype bloodgroup;

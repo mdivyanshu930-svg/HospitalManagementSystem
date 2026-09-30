@@ -9,7 +9,6 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,7 +16,7 @@ import java.util.List;
 public class Patientservice {
     private final PatientRepository patientRepository;
     private final ModelMapper modelMapper;
-    public List<Patientdto>getallPatient(){
+    public List<Patientdto>getallPatient(Integer pagenumber, Integer pagesize){
         List<patient>Patient=patientRepository.findAll();
         List<Patientdto>patientdtoList=Patient.stream()
                 .map(patient ->modelMapper.map(patient,Patientdto.class) )

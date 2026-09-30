@@ -4,7 +4,6 @@ import com.codingbydivyanshu.yt.HospitalManagement.Dto.Patientdto;
 import com.codingbydivyanshu.yt.HospitalManagement.Dto.addPatientdto;
 import com.codingbydivyanshu.yt.HospitalManagement.service.Patientservice;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,11 +19,7 @@ import java.util.List;
 
 public class PatientController {
     private final Patientservice patientservice;
-    @GetMapping
-    public ResponseEntity<List<Patientdto>> getAllpatient(){
-        return ResponseEntity.status(HttpStatus.OK).body(patientservice.getallPatient());
 
-    }
     @GetMapping("/{id}")
     private ResponseEntity<Patientdto>getPatiendbyId(@PathVariable Long id){
         return ResponseEntity.ok(patientservice.getPatientbyId(id));

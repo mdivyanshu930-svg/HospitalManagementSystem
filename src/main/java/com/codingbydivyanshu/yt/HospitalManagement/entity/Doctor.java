@@ -22,9 +22,13 @@ public class Doctor {
     private Long id;
     @Column(nullable = false,length = 100)
     private String name;
+
+    @OneToOne
+    @MapsId
+    private User user;
     @Column(length =100)
     private String specilization;
-    @Column(nullable = false, unique = true,length = 100)
+    @Column( unique = true,length = 100)
     private String email;
 
     @ManyToMany(mappedBy = "doctors")

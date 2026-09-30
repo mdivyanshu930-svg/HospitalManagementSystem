@@ -11,16 +11,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/doctor")
+@RequestMapping("/public")
 @RequiredArgsConstructor
 public class DoctorController {
     private final DoctorService doctorService;
-    @GetMapping
+    @GetMapping("/doctors")
     public ResponseEntity<List<Doctordto>> getdoctor(){
         return ResponseEntity.status(HttpStatus.OK).body(doctorService.getalldoctor());
     }
-    @PostMapping
-    public ResponseEntity<Doctordto> adddoctor(@RequestBody addDoctordto adddoctordto){
-        return ResponseEntity.status(HttpStatus.CREATED).body(doctorService.adddoctor(adddoctordto));
-    }
+
+
 }
